@@ -4,8 +4,6 @@ To create visualized results and use ssim metric, I used several libraries. Plea
 
 # Dataset
 
-I created a dataset, but it was too large to upload to GitHub. Please run the `homework1.py`. It will create a directory named `dataset` and will create 10 files for each data type. Please do not make any changes on the dataset creation step, because all the subsequent tasks makes assumptions on the data file structures. It is needed to have 10 files for each datatype in `dataset` directory and it will be used in the `Loader` class implemented in the `utility.py` file.
-
 The `Loader` partitions the dataset into `train`, `eval`, and `test` portions. `train` part is the %80 of the dataset and the `eval` and `test` datasets include 10% of the dataset each.
 
 # Tasks
@@ -36,12 +34,10 @@ Again, you can run `python hw1_2.py` in the terminal to run the train and test s
 
 ### Part 3 (RAW, U-NET):
 
-Because of the size limits of the GitHub, I couldn't upload the trained model parameters. Please download the trained version from ... here [] and save to this project directory with the name of `hw1_3.pt` to make the tests.
-
-This model takes the raw image inputs of the environments' final state and uses action id to create an image predicting the states' visual interpretation. This model uses Convolution and Deconvolution layers with Residual Connections. It converts the action id into 4 channel on hot encoding and uses this information to encode the image with it. After encoding, it flattens the encoded value and inserts the action id as a one hot encoding again. After deconvolution layers, it produces the predicted image. As it is seen from the loss graph, again it converges. But, I needed to train this model for 2000 epochs to get better results. I used SSIM as the loss function.  
+This model takes the raw image inputs of the environments' final state and uses action id to create an image predicting the states' visual interpretation. This model uses Convolution and Deconvolution layers with Residual Connections. It converts the action id into 4 channel one hot encoding and uses this information to encode the image with it. After encoding, it flattens the encoded value and inserts the action id as a one hot encoding again. After deconvolution layers, it produces the predicted image. As it is seen from the loss graph, again it converges. But, I needed to train this model for 2000 epochs to get better results. I used SSIM as the loss function.  
 ![](raw_training.png)
 
-The loss value is ... As it is seen from the output images, the model is very successful in inference time. The predicted results are very similar to the real values. Also, it successfully changes the structure of the seen arm. 
+The test loss value is 0.026971. As it is seen from the output images, the model is very successful in inference time. The predicted results are very similar to the real values. Also, it successfully changes the structure of the seen arm, but changes the colors of the base components.
 ![](raw_evaluation.png)
 
 #### Experiment

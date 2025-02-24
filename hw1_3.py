@@ -70,28 +70,28 @@ class Bottleneck(nn.Module):
 class ModelRAW(nn.Module):
     def __init__(self):
         super(ModelRAW, self).__init__()
-        self.enc1 = DoubleConv(7, 32, use_bn=False)
+        self.enc1 = DoubleConv(7, 32)
         self.res1 = ResidualBlock(32)
         self.pool1 = nn.MaxPool2d(2)
 
-        self.enc2 = DoubleConv(32, 64, use_bn=False)
+        self.enc2 = DoubleConv(32, 64)
         self.res2 = ResidualBlock(64)
         self.pool2 = nn.MaxPool2d(2)
 
-        self.enc3 = DoubleConv(64, 128, use_bn=False)
+        self.enc3 = DoubleConv(64, 128)
         self.res3 = ResidualBlock(128)
         self.pool3 = nn.MaxPool2d(2)
 
         self.bottleneck = Bottleneck()
 
         self.up3 = nn.ConvTranspose2d(256, 128, kernel_size=2, stride=2)
-        self.dec3 = DoubleConv(256, 128, use_bn=False)
+        self.dec3 = DoubleConv(256, 128)
 
         self.up2 = nn.ConvTranspose2d(128, 64, kernel_size=2, stride=2)
-        self.dec2 = DoubleConv(128, 64, use_bn=False)
+        self.dec2 = DoubleConv(128, 64)
 
         self.up1 = nn.ConvTranspose2d(64, 32, kernel_size=2, stride=2)
-        self.dec1 = DoubleConv(64, 32, use_bn=False)
+        self.dec1 = DoubleConv(64, 32)
 
         self.out_conv = nn.Conv2d(32, 3, kernel_size=1)
 

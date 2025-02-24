@@ -3,7 +3,15 @@
   <component name="JupyterPersistentConnectionParameters">
     <option name="moduleParameters">
       <map>
-        <entry key="$PROJECT_DIR$/../../../os/chat/.idea/chat.iml">
+        <entry key="$PROJECT_DIR$/../../os/chat/.idea/chat.iml">
+          <value>
+            <JupyterConnectionParameters>
+              <option name="managed" value="true" />
+              <option name="sdkHomePath" value="$USER_HOME$/opt/anaconda3/envs/open/bin/python" />
+            </JupyterConnectionParameters>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/os/chat/.idea/chat.iml">
           <value>
             <JupyterConnectionParameters>
               <option name="managed" value="true" />
